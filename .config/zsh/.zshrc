@@ -1,10 +1,4 @@
 
-if [[ -f ~/.cache/wal/sequences ]]; then
-    cat ~/.cache/wal/sequences
-else
-    echo 'pywal color sequences not found!'
-    return 1
-fi
 
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
@@ -46,14 +40,14 @@ unsetopt prompt_sp # don't autoclean blanklines
 #stty stop undef # disable accidental ctrl s
 
 # binds
-bindkey "^q" beginning-of-line
 
+# starship
 eval "$(starship init zsh)"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 # fzf setup
 source <(fzf --zsh) # allow for fzf history widget
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 
