@@ -50,3 +50,8 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
 vim.keymap.set('n', "<leader>tt", "<cmd>Themery<CR>")
 vim.keymap.set('n', "<leader>o", "<cmd>lua vim.ui.open(vim.fn.expand('%'))<CR>")
+-- Toggle wrap
+vim.keymap.set("n", "<C-w>", function()
+  vim.wo.wrap = not vim.wo.wrap
+end, { desc = "Toggle line wrap" })
+
